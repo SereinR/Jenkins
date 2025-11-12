@@ -7,20 +7,24 @@ pipeline {
         checkout scm
       }
     }
-    stage('Build') {
+
+    stage('Build Java') {
       steps {
-        echo 'Build step…'
+        echo 'Compiling Java program...'
+        sh 'javac Hello.java'
       }
     }
-    stage('Test') {
+
+    stage('Run') {
       steps {
-        echo 'Tests OK ✅'
+        echo 'Running program...'
+        sh 'java Hello'
       }
     }
   }
 
   post {
-    success { echo 'Pipeline finished: SUCCESS' }
-    failure { echo 'Pipeline finished: FAILURE' }
+    success { echo 'Pipeline finished: SUCCESS ✅' }
+    failure { echo 'Pipeline finished: FAILURE ❌' }
   }
 }
