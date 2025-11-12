@@ -1,6 +1,5 @@
 pipeline {
   agent any
-
   stages {
     stage('Checkout') {
       steps {
@@ -19,7 +18,7 @@ pipeline {
     }
   }
   post {
-    success { echo 'Pipeline finished: SUCCESS ✅' }
-    failure { echo 'Pipeline finished: FAILURE ❌' }
+    success { echo 'SUCCESS ' }
+    failure { echo 'FAILURE ' }
   }
 }
