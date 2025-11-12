@@ -1,21 +1,26 @@
-pipeline{
+pipeline {
   agent any
-  stages{
-    stage("build")
-    {
-      steps{
-        echo 'building the app'
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
     }
-      stage("test")
-    {
-      steps{
-        echo 'testing the app'
+    stage('Build') {
+      steps {
+        echo 'Build step…'
+      }
     }
-      stage("deploy")
-    {
-      steps{
-        echo 'deploying the app'
+    stage('Test') {
+      steps {
+        echo 'Tests OK ✅'
+      }
     }
-    
+  }
+
+  post {
+    success { echo 'Pipeline finished: SUCCESS' }
+    failure { echo 'Pipeline finished: FAILURE' }
   }
 }
