@@ -10,7 +10,7 @@ pipeline {
              sh 'javac Hello.java'
       }
     }
-  }
+  
   stage('Run') { 
     steps { 
       echo 'Running program...' 
@@ -21,4 +21,5 @@ pipeline {
     success { echo 'SUCCESS ✅' }
     failure { echo 'FAILURE ❌' }
   }
+}
 }
